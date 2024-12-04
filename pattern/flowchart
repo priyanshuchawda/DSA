@@ -1,0 +1,52 @@
+// Flowchart
+digraph {
+	Start [label=Start shape=oval]
+	Init1 [label="size = 5" shape=rectangle]
+	Init2 [label="i = 0; j = 0" shape=rectangle]
+	OuterLoop [label="i < size?" shape=diamond]
+	InnerLoop [label="j < size?" shape=diamond]
+	Cond1 [label="(i == 0 OR i == size - 1) AND 
+(j == 0 OR j == 1 OR j == size - 2 OR j == size - 1)?" shape=diamond]
+	Cond1_True [label="Print(1)" shape=rectangle]
+	Cond2 [label="j == 2?" shape=diamond]
+	Cond2_True [label="Print(*)" shape=rectangle]
+	Cond3 [label="i == 2?" shape=diamond]
+	Cond3_True [label="Print(*)" shape=rectangle]
+	Cond4 [label="(i == 1 OR i == size - 2) AND 
+(j == 0 OR j == size - 1)?" shape=diamond]
+	Cond4_True [label="Print(1)" shape=rectangle]
+	Cond5 [label="i == 1 OR i == size - 2?" shape=diamond]
+	Cond5_True [label="Print(*)" shape=rectangle]
+	Default [label="Print(*)" shape=rectangle]
+	IncrementJ [label="j = j + 1" shape=rectangle]
+	NewLine [label="Print() (move to new line)" shape=rectangle]
+	IncrementI [label="i = i + 1" shape=rectangle]
+	End [label=End shape=oval]
+	Start -> Init1
+	Init1 -> Init2
+	Init2 -> OuterLoop
+	OuterLoop -> InnerLoop [label=Yes]
+	OuterLoop -> End [label=No]
+	InnerLoop -> Cond1 [label=Yes]
+	InnerLoop -> IncrementI [label=No]
+	Cond1 -> Cond1_True [label=Yes]
+	Cond1_True -> IncrementJ
+	Cond1 -> Cond2 [label=No]
+	Cond2 -> Cond2_True [label=Yes]
+	Cond2_True -> IncrementJ
+	Cond2 -> Cond3 [label=No]
+	Cond3 -> Cond3_True [label=Yes]
+	Cond3_True -> IncrementJ
+	Cond3 -> Cond4 [label=No]
+	Cond4 -> Cond4_True [label=Yes]
+	Cond4_True -> IncrementJ
+	Cond4 -> Cond5 [label=No]
+	Cond5 -> Cond5_True [label=Yes]
+	Cond5_True -> IncrementJ
+	Cond5 -> Default [label=No]
+	Default -> IncrementJ
+	IncrementJ -> InnerLoop
+	InnerLoop -> NewLine [label=No]
+	NewLine -> IncrementI
+	IncrementI -> OuterLoop
+}
