@@ -23,7 +23,8 @@ void printArray(int arr[], int size) {
         cout << arr[i] << " ";
     }
     cout << endl;
-}
+} 
+//ok
 
 int main() {
     int capacity = 10;
