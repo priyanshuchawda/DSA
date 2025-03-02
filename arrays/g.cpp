@@ -27,7 +27,7 @@ void printArray(int arr[], int size) {
 
 int main() {
     int capacity = 10;
-    int arr[capacity] = {1, 2, 4, 5};  // Initial array
+    int arr[10] = {1, 2, 4, 5};  // Initial array
     int size = 4;
 
     cout << "Before insertion: ";
